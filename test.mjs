@@ -1,4 +1,11 @@
 #!/usr/bin/env zx
 
-let name = 'foo & bar'
-await $`mkdir ${name}`
+import {spinner} from 'zx/experimental'
+
+// await spinner(() => $`long-running command`)
+
+// With a message.
+await spinner(async () => {
+	await $`sleep 2`
+	echo`success`
+})
